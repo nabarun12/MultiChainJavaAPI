@@ -129,7 +129,11 @@ public class QueryBuilderGrant extends QueryBuilderCommon {
 
 		return execute(CommandEnum.GRANT, address, permissionsFormated);
 	}
+	protected Object executeGrantWrite(String address, String streamName) throws MultichainException {
+		MultichainTestParameter.isNotNullOrEmpty("address", address);
 
+		return execute(CommandEnum.GRANT, address, streamName+"."+"write");
+	}
 	/**
 	 * Grants permissions to addresses From an address
 	 * 

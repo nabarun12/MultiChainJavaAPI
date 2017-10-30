@@ -130,6 +130,17 @@ public class GrantCommand extends QueryBuilderGrant {
 
 		return grant;
 	}
+	
+	public String grantWrite (String address, String streamName) throws MultichainException {
+		String grant = "";
+
+		Object objectGrant = executeGrantWrite(address,streamName);
+		if (verifyInstance(objectGrant, String.class)) {
+			grant = (String) objectGrant;
+		}
+
+		return grant;
+	}
 
 	/**
 	 * Grants permissions to addresses From an address
